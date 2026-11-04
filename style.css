@@ -1,0 +1,285 @@
+/* 定義網站主色調變數，方便統一管理顏色 */
+:root {
+    --primary-color: #D35400;
+    /* 烘焙橘色 */
+    --secondary-color: #27AE60;
+    /* 蔬果綠色 */
+    --bg-color: #FDF9F1;
+    /* 溫暖的米黃底色 */
+    --text-color: #333333;
+    /* 主要文字顏色 */
+    --light-gray: #F4F1EA;
+    /* 淺灰色背景 */
+    --nav-height: 70px;
+}
+
+/* 基礎設定 (Reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全域捲動平滑效果 */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+/* ---------------- 導覽列 ---------------- */
+.navbar {
+    position: fixed;
+    /* 固定在畫面上方 */
+    top: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* ---------------- Hero 區塊 ---------------- */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #F8E5C2;
+    /* 簡單的背景色代替圖片 */
+    /* 若有真實照片，可替換為： background: url('hero.jpg') center/cover; */
+    padding: 0 20px;
+    margin-top: var(--nav-height);
+    /* 避免被固定的導覽列擋住 */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* 按鈕共用樣式 */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #1E8449;
+    /* 更深的綠色 */
+}
+
+/* ---------------- 共用區塊設定 ---------------- */
+.section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.bg-light {
+    background-color: var(--light-gray);
+    max-width: 100%;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* ---------------- 商品卡片 (Grid 排版) ---------------- */
+.card-container {
+    display: grid;
+    /* 響應式網格：欄寬最小 300px，剩餘空間均分 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* 滑鼠游標經過時卡片上浮 */
+}
+
+/* 暫時用色塊代替圖片 */
+.card-img {
+    height: 200px;
+    background-color: #ddd;
+}
+
+.placeholder-img1 {
+    background-color: #F5B041;
+}
+
+/* 象徵南瓜 */
+.placeholder-img2 {
+    background-color: #E74C3C;
+}
+
+/* 象徵甜菜根 */
+.placeholder-img3 {
+    background-color: #58D68D;
+}
+
+/* 象徵菠菜 */
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.card-body p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* ---------------- 聯絡表單 ---------------- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.contact-info,
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    /* 手機版時會自動折行 */
+}
+
+.contact-info h3 {
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+/* ---------------- 頁尾 ---------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--text-color);
+    color: white;
+}
+
+/* ---------------- 手機版響應式設計 ---------------- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        margin-top: 100px;
+        /* 配合手機版較高的 header 調整 */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
