@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招牌甜點 | 菠特傑蔬果烘焙坊</title>
+
+    <!-- Google Fonts: Noto Sans TC (黑體) & Noto Serif TC (明體) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome 6.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Bootstrap 5 CSS (僅供 Carousel 等元件使用) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS 動畫庫 CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- 網站 Logo -->
+    <link rel="icon" href="https://i.meee.com.tw/aRJMdQh.jpg" type="image/jpeg">
+
+    <!-- Tailwind CSS (CDN) & Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FDFCF8',
+                        'sand': '#F5F2EB',
+                        'potager-green': '#5C7C45',
+                        'potager-green-hover': '#4a6337',
+                        'pumpkin': '#E89A4B',
+                        'pumpkin-hover': '#d1873e',
+                        'roselle-red': '#C55A67',
+                        'dark-brown': '#4A3B32',
+                        'footer-brown': '#362b24',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 基礎字體與色彩覆寫 */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FDFCF8;
+            /* Cream */
+            color: #4A3B32;
+            /* Dark Brown */
+            overflow-x: hidden;
+        }
+
+        /* 標題與重點字體自訂 class */
+        .font-serif-tw {
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        /* 修復 Bootstrap 與 Tailwind 連結樣式衝突 */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            color: inherit;
+        }
+
+        /* Bootstrap Carousel 客製化指示器 */
+        .carousel-indicators [data-bs-target] {
+            background-color: #FDFCF8;
+            opacity: 0.5;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .carousel-indicators .active {
+            background-color: #E89A4B;
+            opacity: 1;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(92, 124, 69, 0.8);
+            border-radius: 50%;
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- 頂部固定導覽列 (Glassmorphism 毛玻璃特效) -->
+    <nav
+        class="fixed w-full top-0 z-50 bg-cream/70 backdrop-blur-[10px] border-b border-sand shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <i
+                    class="fa-solid fa-leaf text-potager-green text-3xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-12"></i>
+                <span class="font-serif-tw text-2xl tracking-widest text-potager-green font-bold">
+                    菠特傑蔬果烘焙坊
+                </span>
+            </a>
+
+            <!-- 導覽連結 -->
+            <div class="hidden md:flex gap-10 items-center font-serif-tw tracking-widest text-dark-brown">
+                <a href="index.html" class="hover:text-potager-green transition-colors duration-300">首頁</a>
+                <a href="about.html" class="hover:text-potager-green transition-colors duration-300">關於我們</a>
+                <a href="products.html"
+                    class="text-potager-green border-b-2 border-potager-green pb-1 hover:text-potager-green-hover transition-colors duration-300">招牌甜點</a>
+            </div>
+
+            <!-- 預訂按鈕 (微互動) -->
+            <a href="https://www.facebook.com/ricebaking" target="_blank"
+                class="hidden md:inline-block px-8 py-3 bg-pumpkin text-white rounded-full font-serif-tw tracking-widest hover:bg-pumpkin-hover transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-sm">
+                立即預訂
+            </a>
+        </div>
+    </nav>
+
+    <!-- 頁面標題 & 主打輪播區 (引入 Bootstrap 5 Carousel) -->
+    <header class="pt-48 pb-16 max-w-7xl mx-auto px-6 w-full" data-aos="fade-up" data-aos-duration="1200">
+        <div class="text-center mb-16">
+            <h1 class="font-serif-tw text-4xl md:text-5xl font-bold text-dark-brown tracking-widest mb-6">當季主打星</h1>
+            <p class="max-w-2xl mx-auto text-dark-brown/70 leading-relaxed tracking-wide text-lg font-light">
+                天然蔬果 ✕ 台灣米穀粉，職人純手工新鮮製作。
+            </p>
+        </div>
+
+        <!-- Bootstrap Carousel 區塊 (圓角、深邃陰影、黑色漸層疊加) -->
+        <div id="featuredDesserts" class="carousel slide rounded-3xl shadow-2xl overflow-hidden relative"
+            data-bs-ride="carousel">
+            <div class="carousel-indicators mb-6 z-30">
+                <button type="button" data-bs-target="#featuredDesserts" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#featuredDesserts" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            </div>
+
+            <div class="carousel-inner h-[500px] md:h-[600px]">
+                <!-- Slide 1 -->
+                <div class="carousel-item active h-full relative group">
+                    <img src="https://i.meee.com.tw/VjBc3nn.jpg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="小黃瓜蜂蜜蛋糕">
+                    <!-- 嚴格的黑色漸層疊加 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
+                    <div class="absolute bottom-16 left-12 right-12 md:left-20 md:right-20 z-20 text-left">
+                        <span
+                            class="inline-block bg-white/20 backdrop-blur-md text-white border border-white/50 px-5 py-1.5 rounded-full text-xs font-bold tracking-widest mb-4">夏日限定</span>
+                        <h2
+                            class="font-serif-tw text-4xl md:text-5xl font-bold text-white tracking-widest mb-4 drop-shadow-md">
+                            小黃瓜蜂蜜蛋糕</h2>
+                        <p class="text-white/90 tracking-wide text-lg font-light max-w-2xl leading-relaxed">
+                            清香小黃瓜與純粹蜂蜜的清爽邂逅，尾韻淡雅回甘。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item h-full relative group">
+                    <img src="https://i.meee.com.tw/Vq29nsF.jpg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="紅寶芝麻米糧捲">
+                    <!-- 嚴格的黑色漸層疊加 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
+                    <div class="absolute bottom-16 left-12 right-12 md:left-20 md:right-20 z-20 text-left">
+                        <span
+                            class="inline-block bg-white/20 backdrop-blur-md text-white border border-white/50 px-5 py-1.5 rounded-full text-xs font-bold tracking-widest mb-4">經典推薦</span>
+                        <h2
+                            class="font-serif-tw text-4xl md:text-5xl font-bold text-white tracking-widest mb-4 drop-shadow-md">
+                            紅寶芝麻米糧捲</h2>
+                        <p class="text-white/90 tracking-wide text-lg font-light max-w-2xl leading-relaxed">
+                            深焙黑芝麻的濃郁香氣，點綴如紅寶石般的微酸蔓越莓。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev z-30" type="button" data-bs-target="#featuredDesserts"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon shadow-lg" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next z-30" type="button" data-bs-target="#featuredDesserts"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon shadow-lg" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 商品列表 (極大間距與精品卡片設計) -->
+    <main class="w-full bg-cream py-32">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- 分類標籤 (微互動) -->
+            <div class="flex flex-wrap justify-center gap-6 mb-24" data-aos="fade-up">
+                <span
+                    class="bg-dark-brown text-white px-8 py-3 rounded-full text-sm font-bold tracking-widest shadow-md cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">全部商品</span>
+                <span
+                    class="bg-transparent border border-dark-brown/20 text-dark-brown/60 px-8 py-3 rounded-full text-sm font-bold tracking-widest hover:border-potager-green hover:text-potager-green transition-all duration-300 cursor-pointer hover:-translate-y-1">無麩質米蛋糕</span>
+                <span
+                    class="bg-transparent border border-dark-brown/20 text-dark-brown/60 px-8 py-3 rounded-full text-sm font-bold tracking-widest hover:border-potager-green hover:text-potager-green transition-all duration-300 cursor-pointer hover:-translate-y-1">節慶伴手禮</span>
+            </div>
+
+            <!-- 商品卡片網格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <!-- Product 1 -->
+                <div class="bg-white rounded-3xl shadow-lg border border-sand overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://i.meee.com.tw/VjBc3nn.jpg" alt="小黃瓜蜂蜜蛋糕"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <!-- 標籤浮動於圖片上方 -->
+                        <div
+                            class="absolute top-6 right-6 bg-cream/90 backdrop-blur-sm text-potager-green text-xs font-bold px-5 py-2 rounded-full tracking-widest shadow-sm">
+                            清爽</div>
+                    </div>
+                    <div class="p-10">
+                        <h3
+                            class="font-serif-tw text-2xl font-bold text-dark-brown mb-4 tracking-widest group-hover:text-potager-green transition-colors duration-300">
+                            小黃瓜蜂蜜蛋糕
+                        </h3>
+                        <p class="text-dark-brown/70 text-base leading-loose font-light tracking-wide">
+                            清香小黃瓜與純粹蜂蜜的清爽邂逅！尾韻淡雅回甘，適合夏日午後的沁涼甜點。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-3xl shadow-lg border border-sand overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://i.meee.com.tw/Vq29nsF.jpg" alt="紅寶芝麻米糧捲"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute top-6 right-6 bg-cream/90 backdrop-blur-sm text-roselle-red text-xs font-bold px-5 py-2 rounded-full tracking-widest shadow-sm">
+                            經典</div>
+                    </div>
+                    <div class="p-10">
+                        <h3
+                            class="font-serif-tw text-2xl font-bold text-dark-brown mb-4 tracking-widest group-hover:text-potager-green transition-colors duration-300">
+                            紅寶芝麻米糧捲
+                        </h3>
+                        <p class="text-dark-brown/70 text-base leading-loose font-light tracking-wide">
+                            深焙黑芝麻的濃郁香氣，點綴如紅寶石般的微酸蔓越莓，口感層次豐富，是不容錯過的經典美味。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-3xl shadow-lg border border-sand overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group cursor-pointer"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://i.meee.com.tw/QeM2pAm.jpg" alt="毛豆鵝鬆米蛋糕"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute top-6 right-6 bg-cream/90 backdrop-blur-sm text-potager-green text-xs font-bold px-5 py-2 rounded-full tracking-widest shadow-sm">
+                            無麩質</div>
+                    </div>
+                    <div class="p-10">
+                        <h3
+                            class="font-serif-tw text-2xl font-bold text-dark-brown mb-4 tracking-widest group-hover:text-potager-green transition-colors duration-300">
+                            毛豆鵝鬆米蛋糕
+                        </h3>
+                        <p class="text-dark-brown/70 text-base leading-loose font-light tracking-wide">
+                            清甜毛豆揉合鹹香鵝鬆，搭配柔軟細緻的米蛋糕，鹹甜交織、米香馥郁，口感豐富而不失清爽。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-3xl shadow-lg border border-sand overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group cursor-pointer lg:col-start-2"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://i.meee.com.tw/4hMD414.jpg" alt="特色米糧伴手禮"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute top-6 right-6 bg-cream/90 backdrop-blur-sm text-pumpkin text-xs font-bold px-5 py-2 rounded-full tracking-widest shadow-sm">
+                            節慶限定</div>
+                    </div>
+                    <div class="p-10">
+                        <h3
+                            class="font-serif-tw text-2xl font-bold text-dark-brown mb-4 tracking-widest group-hover:text-potager-green transition-colors duration-300">
+                            特色米糧伴手禮
+                        </h3>
+                        <p class="text-dark-brown/70 text-base leading-loose font-light tracking-wide">
+                            顛覆傳統的清爽口感，過節送禮最具巧思的健康心意。職人純手工製作，健康無負擔。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- 預訂說明區塊 -->
+    <section class="bg-sand py-32 px-6 border-t border-dark-brown/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-pumpkin font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4" data-aos="fade-up">How
+                to Order</p>
+            <h2 class="font-serif-tw text-4xl font-bold text-dark-brown mb-16 tracking-widest" data-aos="fade-up"
+                data-aos-delay="100">
+                如何購買與預訂？
+            </h2>
+
+            <div class="bg-white p-12 md:p-16 rounded-3xl shadow-xl text-left space-y-10 text-dark-brown transition-all duration-500 hover:shadow-2xl border border-cream"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <div class="bg-potager-green/10 p-5 rounded-2xl text-potager-green shrink-0">
+                        <i class="fa-solid fa-hand-sparkles text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif-tw text-2xl font-bold tracking-widest mb-3 text-potager-green">純手工製作，數量有限
+                        </h4>
+                        <p class="leading-loose font-light text-dark-brown/80 tracking-wide text-lg">
+                            我們的米甜點堅持每日新鮮手作，無添加防腐劑。為確保您能品嚐到最新鮮的美味，強烈建議您提前預訂保留。
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="border-sand">
+
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <div class="bg-pumpkin/10 p-5 rounded-2xl text-pumpkin shrink-0">
+                        <i class="fa-solid fa-comment-dots text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif-tw text-2xl font-bold tracking-widest mb-3 text-pumpkin">粉專私訊預訂</h4>
+                        <p class="leading-loose font-light text-dark-brown/80 tracking-wide text-lg">
+                            請點擊下方按鈕前往 Facebook 粉絲專頁，透過私訊 (Messenger) 告訴我們您想訂購的品項、數量與取貨時間。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://www.facebook.com/ricebaking" target="_blank"
+                    class="inline-flex items-center justify-center gap-4 bg-pumpkin hover:bg-pumpkin-hover text-white px-12 py-5 rounded-full font-serif-tw font-bold tracking-widest text-lg shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl group">
+                    <i class="fa-brands fa-facebook text-2xl group-hover:scale-110 transition-transform"></i>
+                    前往粉專私訊預訂
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 (極深棕，高級感) -->
+    <footer class="mt-auto bg-footer-brown text-cream pt-24 pb-12 border-t-8 border-potager-green">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            <!-- 品牌資訊 -->
+            <div class="md:col-span-5">
+                <a href="index.html" class="flex items-center gap-3 mb-6 group inline-flex">
+                    <img src="https://i.meee.com.tw/aRJMdQh.jpg" alt="Logo"
+                        class="w-10 h-10 rounded-full opacity-90 transition-transform duration-300 group-hover:rotate-12">
+                    <span class="font-serif-tw font-bold text-2xl tracking-widest text-cream">菠特傑蔬果烘焙坊</span>
+                </a>
+                <p class="text-cream/60 text-base leading-loose mb-8 font-light tracking-wide max-w-sm">
+                    天然、無麩質、米烘焙。<br>
+                    把菜園裡的健康，變成餐桌上的幸福甜點，堅持手作，傳遞大地溫度。
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/ricebaking" target="_blank"
+                        class="w-12 h-12 rounded-full bg-cream/10 flex items-center justify-center hover:bg-potager-green transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-cream">
+                        <i class="fa-brands fa-facebook-f text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 網站導覽 -->
+            <div class="md:col-span-3 md:col-start-7">
+                <h4 class="text-lg font-bold mb-6 text-pumpkin tracking-widest font-serif-tw">網站導覽</h4>
+                <ul class="space-y-4 font-light tracking-wide text-cream/70">
+                    <li><a href="index.html"
+                            class="hover:text-potager-green transition-colors duration-300 flex items-center gap-2"><i
+                                class="fa-solid fa-angle-right text-xs text-potager-green"></i> 首頁 Home</a></li>
+                    <li><a href="about.html"
+                            class="hover:text-potager-green transition-colors duration-300 flex items-center gap-2"><i
+                                class="fa-solid fa-angle-right text-xs text-potager-green"></i> 關於我們 About</a></li>
+                    <li><a href="products.html"
+                            class="hover:text-potager-green transition-colors duration-300 flex items-center gap-2"><i
+                                class="fa-solid fa-angle-right text-xs text-potager-green"></i> 招牌甜點 Products</a></li>
+                </ul>
+            </div>
+
+            <!-- 聯絡資訊 -->
+            <div class="md:col-span-3">
+                <h4 class="text-lg font-bold mb-6 text-pumpkin tracking-widest font-serif-tw">聯絡資訊</h4>
+                <ul class="space-y-5 text-cream/70 text-sm font-light leading-relaxed tracking-wide">
+                    <li class="flex items-start gap-4">
+                        <i class="fa-solid fa-location-dot mt-1 text-potager-green text-lg"></i>
+                        <span>台灣台南市<br>(自取地點請查看粉專公告)</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <i class="fa-solid fa-clock mt-1 text-potager-green text-lg"></i>
+                        <span>網路客服時間<br>周一至周六 9:00~17:00</span>
+                    </li>
+                </ul>
+                <a href="https://www.facebook.com/ricebaking" target="_blank"
+                    class="mt-8 inline-flex items-center justify-center gap-2 bg-pumpkin hover:bg-pumpkin-hover text-white px-8 py-3 rounded-full font-serif-tw transition-all duration-300 w-full tracking-widest hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fa-brands fa-facebook"></i> 前往 FB 預訂
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center text-cream/40 text-xs tracking-widest border-t border-cream/10 pt-8 font-light">
+            <p>&copy; 2026 菠特傑蔬果烘焙坊 All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS 動畫庫 JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 初始化 AOS 捲動動畫
+        AOS.init({
+            once: true, // 動畫只播放一次
+            offset: 100, // 提早 100px 觸發
+            duration: 1000,
+            easing: 'ease-out-cubic',
+        });
+    </script>
+</body>
+
+</html>

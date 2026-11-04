@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 | 菠特傑蔬果烘焙坊</title>
+
+    <!-- Google Fonts: Noto Sans TC (黑體) & Noto Serif TC (明體) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome 6.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Bootstrap 5 CSS (保留擴充性) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS 動畫庫 CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- 網站 Logo -->
+    <link rel="icon" href="https://i.meee.com.tw/aRJMdQh.jpg" type="image/jpeg">
+
+    <!-- Tailwind CSS (CDN) & Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FDFCF8',
+                        'sand': '#F5F2EB',
+                        'potager-green': '#5C7C45',
+                        'potager-green-hover': '#4a6337',
+                        'pumpkin': '#E89A4B',
+                        'pumpkin-hover': '#d1873e',
+                        'roselle-red': '#C55A67',
+                        'dark-brown': '#4A3B32',
+                        'footer-brown': '#362b24',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 基礎字體與色彩覆寫 */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FDFCF8;
+            /* Cream */
+            color: #4A3B32;
+            /* Dark Brown */
+            overflow-x: hidden;
+        }
+
+        /* 標題與重點字體自訂 class */
+        .font-serif-tw {
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        /* 修復 Bootstrap 與 Tailwind 連結樣式衝突 */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- 頂部固定導覽列 (Glassmorphism 毛玻璃特效) -->
+    <nav
+        class="fixed w-full top-0 z-50 bg-cream/70 backdrop-blur-[10px] border-b border-sand shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <i
+                    class="fa-solid fa-leaf text-potager-green text-3xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-12"></i>
+                <span class="font-serif-tw text-2xl tracking-widest text-potager-green font-bold">
+                    菠特傑蔬果烘焙坊
+                </span>
+            </a>
+
+            <!-- 導覽連結 -->
+            <div class="hidden md:flex gap-10 items-center font-serif-tw tracking-widest text-dark-brown">
+                <a href="index.html" class="hover:text-potager-green transition-colors duration-300">首頁</a>
+                <a href="about.html"
+                    class="text-potager-green border-b-2 border-potager-green pb-1 hover:text-potager-green-hover transition-colors duration-300">關於我們</a>
+                <a href="products.html" class="hover:text-potager-green transition-colors duration-300">招牌甜點</a>
+            </div>
+
+            <!-- 預訂按鈕 (微互動) -->
+            <a href="https://www.facebook.com/ricebaking" target="_blank"
+                class="hidden md:inline-block px-8 py-3 bg-pumpkin text-white rounded-full font-serif-tw tracking-widest hover:bg-pumpkin-hover transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-sm">
+                立即預訂
+            </a>
+        </div>
+    </nav>
+
+    <!-- 頁面標題區 (大量留白) -->
+    <header class="bg-sand pt-48 pb-32 text-center border-b border-dark-brown/5 px-6">
+        <div data-aos="fade-up" data-aos-duration="1200" class="max-w-4xl mx-auto">
+            <p class="text-pumpkin font-sans font-bold uppercase tracking-[0.2em] text-sm mb-6">Our Story</p>
+            <h1
+                class="font-serif-tw text-4xl md:text-6xl font-bold text-potager-green mb-8 tracking-widest leading-tight">
+                品牌理念與<br class="md:hidden">職人故事
+            </h1>
+            <p class="text-dark-brown/70 text-lg md:text-xl font-light tracking-wide leading-relaxed max-w-2xl mx-auto">
+                來自家庭菜園的甜點魔法，將大地的饋贈揉進每一份麵糊裡。
+            </p>
+        </div>
+    </header>
+
+    <!-- 內容區塊 (極大間距與呼吸感) -->
+    <main class="w-full bg-cream py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 space-y-40">
+
+            <!-- 理念一：關於菠特傑 -->
+            <section class="flex flex-col md:flex-row gap-20 items-center">
+                <div class="md:w-1/2 relative" data-aos="fade-right" data-aos-duration="1200">
+                    <div
+                        class="absolute inset-0 bg-roselle-red rounded-3xl transform -translate-x-4 translate-y-4 opacity-10">
+                    </div>
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl group h-auto">
+                        <img src="https://i.meee.com.tw/haj23sM.jpg" alt="菠特傑蔬果烘焙坊"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <h2
+                        class="font-serif-tw text-4xl md:text-5xl font-bold text-dark-brown tracking-widest mb-8 leading-tight">
+                        關於菠特傑</h2>
+                    <p class="text-dark-brown/80 leading-loose font-light text-lg tracking-wide text-justify">
+                        <strong class="text-potager-green font-medium">在地當季，天然美味，讓每一口都特別傑出。</strong><br><br>
+                        我們相信，好的料理始於好的食材。「菠特傑」象徵著我們對蔬果的堅持——菠菜蔬果，特別傑出。從一份食材開始，將新鮮、健康與美味帶進每一天。<br><br>
+                        我們堅決拒絕化學添加與人工色素，甜點上誘人的色彩，全來自天然農產品。南瓜的亮橘、甜菜根的寶石紅、菠菜的翠綠、洛神花的紫紅...我們將這些大地最真實的風味與色彩融入糕點，讓每一口都吃得到安心。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 理念二：以米代麥 -->
+            <section class="flex flex-col md:flex-row-reverse gap-20 items-center">
+                <div class="md:w-1/2 relative" data-aos="fade-left" data-aos-duration="1200">
+                    <div
+                        class="absolute inset-0 bg-pumpkin rounded-3xl transform translate-x-4 -translate-y-4 opacity-20">
+                    </div>
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl group h-auto">
+                        <img src="https://i.meee.com.tw/xBFLODw.jpg" alt="台灣米穀粉"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                    <h2
+                        class="font-serif-tw text-4xl md:text-5xl font-bold text-dark-brown tracking-widest mb-8 leading-tight">
+                        以「米」代麥<br>給腸胃最溫柔的對待
+                    </h2>
+                    <p class="text-dark-brown/80 leading-loose font-light text-lg tracking-wide text-justify">
+                        現代人常因麩質過敏或消化不良而無法盡情享受甜點。因此，菠特傑堅持核心特色——<strong class="text-pumpkin font-medium tracking-wide">米烘焙
+                            (Rice Baking)</strong>。<br><br>
+                        我們選用台灣在地優質米磨製而成的米穀粉，取代傳統小麥麵粉。米蛋糕不僅保留了保濕軟糯的口感，更大幅降低了麩質含量，讓美味不再是健康的負擔。這份溫柔的堅持，是我們對每一位顧客最深切的關懷。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 獲獎榮耀區塊 (精緻化 Glassmorphism 設計與深邃圓角) -->
+            <section
+                class="relative bg-potager-green text-white rounded-[3rem] p-12 md:p-24 text-center shadow-2xl overflow-hidden"
+                data-aos="fade-up" data-aos-duration="1200">
+                <!-- 背景裝飾 -->
+                <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+                    <i class="fa-solid fa-award absolute -top-10 -right-10 text-[20rem]"></i>
+                    <i class="fa-solid fa-leaf absolute -bottom-10 -left-10 text-[20rem]"></i>
+                </div>
+
+                <div class="relative z-10 max-w-5xl mx-auto">
+
+                    <h2 class="font-serif-tw text-4xl md:text-5xl font-bold mb-16 tracking-widest">職人精神，獎項肯定</h2>
+
+                    <div class="grid md:grid-cols-2 gap-12 text-lg">
+
+                        <!-- 獎項一：國產紅豆烘焙競賽 -->
+                        <div
+                            class="bg-white/10 p-10 rounded-3xl backdrop-blur-md border border-white/20 flex flex-col h-full transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl group">
+                            <div
+                                class="text-pumpkin font-serif-tw tracking-widest font-bold text-xl mb-4 flex items-center justify-center min-h-[3.5rem]">
+                                2024 國產紅豆烘焙競賽
+                            </div>
+                            <div class="font-sans font-bold text-3xl mb-10 tracking-widest text-white drop-shadow-md">🏆
+                                金獎</div>
+                            <div class="mt-auto relative overflow-hidden rounded-2xl shadow-xl">
+                                <img src="https://i.meee.com.tw/03PUjjt.jpg" alt="2024 國產紅豆烘焙競賽金獎"
+                                    class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                        </div>
+
+                        <!-- 獎項二：全國職場達人盃 -->
+                        <div
+                            class="bg-white/10 p-10 rounded-3xl backdrop-blur-md border border-white/20 flex flex-col h-full transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl group">
+                            <div
+                                class="text-sand font-serif-tw tracking-widest font-bold text-xl mb-4 flex items-center justify-center min-h-[3.5rem] leading-relaxed">
+                                113年 全國職場達人盃<br>中式糕餅職類
+                            </div>
+                            <div class="font-sans font-bold text-3xl mb-10 tracking-widest text-white drop-shadow-md">🥈
+                                銀牌</div>
+                            <div class="mt-auto relative overflow-hidden rounded-2xl shadow-xl">
+                                <img src="https://i.meee.com.tw/Pj5oLwQ.jpg" alt="113年全國職場達人盃銀牌"
+                                    class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="mt-16 text-cream/90 font-light tracking-wide leading-loose max-w-2xl mx-auto text-lg">
+                        感謝評審的肯定，菠特傑會繼續帶著對台灣農產的熱愛，結合傳統與創新，為您烤出令人幸福的頂級甜點。
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 頁尾 (極深棕，高級感) -->
+    <footer class="mt-auto bg-footer-brown text-cream pt-24 pb-12 border-t-8 border-potager-green">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            <!-- 品牌資訊 -->
+            <div class="md:col-span-5">
+                <a href="index.html" class="flex items-center gap-3 mb-6 group inline-flex">
+                    <img src="https://i.meee.com.tw/aRJMdQh.jpg" alt="Logo"
+                        class="w-10 h-10 rounded-full opacity-90 transition-transform duration-300 group-hover:rotate-12">
+                    <span class="font-serif-tw font-bold text-2xl tracking-widest text-cream">菠特傑蔬果烘焙坊</span>
+                </a>
+                <p class="text-cream/60 text-base leading-loose mb-8 font-light tracking-wide max-w-sm">
+                    天然、無麩質、米烘焙。<br>
+                    把菜園裡的健康，變成餐桌上的幸福甜點，堅持手作，傳遞大地溫度。
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/ricebaking" target="_blank"
+                        class="w-12 h-12 rounded-full bg-cream/10 flex items-center justify-center hover:bg-potager-green transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-cream">
+                        <i class="fa-brands fa-facebook-f text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 網站導覽 -->
+            <div class="md:col-span-3 md:col-start-7">
+                <h4 class="text-lg font-bold mb-6 text-pumpkin tracking-widest font-serif-tw">網站導覽</h4>
+                <ul class="space-y-4 font-light tracking-wide text-cream/70">
+                    <li><a href="index.html"
+                            class="hover:text-potager-green transition-colors duration-300 flex items-center gap-2"><i
+                                class="fa-solid fa-angle-right text-xs text-potager-green"></i> 首頁 Home</a></li>
+                    <li><a href="about.html"
+                            class="hover:text-potager-green transition-colors duration-300 flex items-center gap-2"><i
+                                class="fa-solid fa-angle-right text-xs text-potager-green"></i> 關於我們 About</a></li>
+                    <li><a href="products.html"
+                            class="hover:text-potager-green transition-colors duration-300 flex items-center gap-2"><i
+                                class="fa-solid fa-angle-right text-xs text-potager-green"></i> 招牌甜點 Products</a></li>
+                </ul>
+            </div>
+
+            <!-- 聯絡資訊 -->
+            <div class="md:col-span-3">
+                <h4 class="text-lg font-bold mb-6 text-pumpkin tracking-widest font-serif-tw">聯絡資訊</h4>
+                <ul class="space-y-5 text-cream/70 text-sm font-light leading-relaxed tracking-wide">
+                    <li class="flex items-start gap-4">
+                        <i class="fa-solid fa-location-dot mt-1 text-potager-green text-lg"></i>
+                        <span>台灣台南市<br>(自取地點請查看粉專公告)</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <i class="fa-solid fa-clock mt-1 text-potager-green text-lg"></i>
+                        <span>網路客服時間<br>周一至周六 9:00~17:00</span>
+                    </li>
+                </ul>
+                <a href="https://www.facebook.com/ricebaking" target="_blank"
+                    class="mt-8 inline-flex items-center justify-center gap-2 bg-pumpkin hover:bg-pumpkin-hover text-white px-8 py-3 rounded-full font-serif-tw transition-all duration-300 w-full tracking-widest hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fa-brands fa-facebook"></i> 前往 FB 預訂
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center text-cream/40 text-xs tracking-widest border-t border-cream/10 pt-8 font-light">
+            <p>&copy; 2026 菠特傑蔬果烘焙坊 All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS 動畫庫 JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 初始化捲動動畫
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>
